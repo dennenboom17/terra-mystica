@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Terra Mystica Statistics</title>
+    <script type="text/javascript" language="javascript"
+            src="/stc/prototype-1.7.1.js">
+    </script>
+    <script type="text/javascript" language="javascript"
+            src="/stc/debug.js">
+    </script>
+    <script type="text/javascript" language="javascript"
+            src="/stc/common.js">
+    </script>
+    <script type="text/javascript" language="javascript"
+            src="/stc/stats.js">
+    </script>
+    <link rel="stylesheet" href="style/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+    <div class="row">
+       	<div id="sidebar" class="col-sm-2">
+	      <script>renderSidebar($("sidebar"));</script>
+	</div>
+        <div class="col-md-8">
+        
+          <div id="error"></div>
+          Statistics computed from <span id="count">?</span> finished games.
+          Only games with at least 3 players are included.
+          <h4>Faction Statistics</h4>
+          <table id="faction-stats" class="table-responsive"><tr><td>Faction<td>Wins<td>Games<td>Win %<td>Average position<td>Average score<td>Average loss<td>Games Won</table>
+          <h4>High Scores</h4>
+          <table id="high-scores" class="table-responsive"><tr><td>Faction<td>3p<td>4p<td>5p</table>
+          <h4>Start Position Statistics (3p)</h4>
+          <table id="position-stats-3p" class="table-responsive"><tr><td>Position<td>Wins<td>Games<td>Win %<td>Average position<td>Average score<td>Average loss</table>
+          <h4>Start Position Statistics (4p)</h4>
+          <table id="position-stats-4p" class="table-responsive"><tr><td>Position<td>Wins<td>Games<td>Win %<td>Average position<td>Average score<td>Average loss</table>
+          <h4>Start Position Statistics (5p)</h4>
+          <table id="position-stats-5p" class="table-responsive"><tr><td>Position<td>Wins<td>Games<td>Win %<td>Average position<td>Average score<td>Average loss</table>
+      <div id="timestamp" style="margin-top: 2ex; "></div>
+    <script language="javascript">loadStats();</script>
+      </div>
+    </div>
+    </div>
+  </body>
+</html>

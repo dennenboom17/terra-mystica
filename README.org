@@ -9,3 +9,5 @@ A play-by-email / play-by-web moderator for the boardgame Terra Mystica.
 - Written in Perl and JavaScript
 - Uses PostgreSQL as the backing storage
 
+- adding Bootstrap framework to site.
+
