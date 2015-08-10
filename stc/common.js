@@ -226,20 +226,21 @@ function loggedIn() {
 }
 
 function renderSidebar(id) {
-    var sidebarSection = function(title, renderer) {
-        var sec = new Element("div", {"class": "sidebar-section"});
-
-        sec.insert(new Element("h4", {"class": "sidebar-section-header"}).updateText(title));                 
-
+	var sidebarSection = function(title, renderer) {
+        var sec = new Element("div", {"class" : "list-group"}).updateText(title);                 
+	//sec.insert(new Element("div", {"class": "list-group"}));
+	
         renderer(function(link, text, accesskey) {
-            var p = new Element("div");
+           var p = new Element ("a");
+	   
             if (document.location.pathname == link) {
-                p.insert(new Element("span", { "class": "navi-selected" }).update(text));
+	       p.insert(new Element("a", {"href": link, "class" : "list-group-item active"}).update(text));
+	       
             } else {
-                p.insert(new Element("a", {"class": "navi",
-                                           "href": link,
+               p.insert(new Element("a", {"href": link, "class" : "list-group-item",
                                            "accesskey": accesskey}).update(text));
             }
+            
             sec.insert(p);
         });
 
@@ -249,8 +250,8 @@ function renderSidebar(id) {
     if (!loggedIn()) {
         sidebarSection("Your Account", function (insertLink) {
             insertLink("/", "Home", "h");
-            insertLink("/login/", "Login");
-            insertLink("/register/request/", "Register");
+            insertLink("/login.html", "Login");
+            insertLink("/register/request.html", "Register");
         });
     } else {
         var username = loggedIn()[1];
@@ -263,18 +264,18 @@ function renderSidebar(id) {
         });
 
         sidebarSection("Games", function (insertLink) {
-            insertLink("/joingame/", "Join Game");
-            insertLink("/newgame/", "New Game");
+            insertLink("/joingame.html", "Join Game");
+            insertLink("/newgame.html", "New Game");
         });
     }
 
     sidebarSection("Site Info", function(insertLink) {
-        insertLink("/about/", "About");
-        insertLink("/usage/", "Help");
-        insertLink("/stats/", "Statistics");
-        insertLink("/ratings/", "Ratings");
-        insertLink("/changes/", "Changes");
-        insertLink("/blog/", "Blog");
+        insertLink("/about.html", "About");
+        insertLink("/usage.html", "Help");
+        insertLink("/stats.html", "Statistics");
+        insertLink("/ratings.html", "Ratings");
+        insertLink("/changes.html", "Changes");
+        insertLink("/blog.html", "Blog");
     });
 
     sidebarSection("Related", function (insertLink) {    
